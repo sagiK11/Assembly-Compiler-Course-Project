@@ -1,0 +1,4 @@
+mov, $ , @
+add , r1 r9
+loop
+cmp r1,r2,r5

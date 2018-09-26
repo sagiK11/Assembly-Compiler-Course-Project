@@ -1,0 +1,15 @@
+date: .string "date"
+currentDate: .string "12/8/2018"
+goTo: mov 10, currentDate
+add  #1 , date
+WHILE: jmp date(2, currentDate)
+	red r0
+	red r1
+	red r2
+	prn r0
+	prn r1
+	prn r2
+endLoop: stop
+.extern name
+.entry lastName
+lastName: mov name, lastName

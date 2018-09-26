@@ -1,0 +1,4 @@
+.extern error
+undefchar: !@#$*&
+mov 44, r2
+add r0, r7

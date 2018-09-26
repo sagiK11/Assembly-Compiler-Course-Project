@@ -1,0 +1,4 @@
+str: .string "illegal use of method 1"
+stop LEN
+rts LEN
+LEN: sub r4, r7

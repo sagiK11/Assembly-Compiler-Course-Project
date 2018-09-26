@@ -1,0 +1,7 @@
+.entry ok
+ok: .string "this file is ok"
+sub r0 , r2
+sub r0 , r2
+mov r0 ,r7
+cmp r0 , r7
+ok2: .data 15000

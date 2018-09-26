@@ -1,0 +1,5 @@
+rts
+stop
+bne r1
+jmp r0
+isOkL .string "worked!"

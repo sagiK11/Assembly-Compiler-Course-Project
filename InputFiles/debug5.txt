@@ -1,0 +1,9 @@
+red r7
+prn r7
+red r6
+prn r6
+result: cmp r6 , r7
+str: .string "the result is: "
+prn str
+prn result
+

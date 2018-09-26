@@ -1,0 +1,12 @@
+error: .string "illegal src operand"
+not LEN, 5
+clr LEN ,7
+inc LEN , 5
+dec LEN , r0
+jmp LEN , 33
+bne LEN , 1
+red LEN, 11
+prn 11, LEN
+jsr 10 , LEN
+LEN: .data 22
+

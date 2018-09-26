@@ -1,0 +1,12 @@
+stop
+.extern symbol
+.entry sym
+true: .string "both are symbols"
+false: .string "not symbols"
+sym: .string "sym"
+res1: cmp sym, symbol
+res2: cmp r0, sym
+res3: cmp 1, symbol
+prn res1
+prn res2
+prn res3

@@ -1,0 +1,3 @@
+C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/cmake-build-debug/CMakeFiles/SystemProgrammingLab.dir
+C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/cmake-build-debug/CMakeFiles/rebuild_cache.dir

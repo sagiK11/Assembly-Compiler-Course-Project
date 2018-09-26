@@ -1,0 +1,5 @@
+error: .string "jmp/bne error"
+
+ERR: clr r5
+ERR2: dec ERR
+JMP: jmp ERR(, r6)

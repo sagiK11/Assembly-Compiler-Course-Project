@@ -1,0 +1,2 @@
+err1: .string "too many commas"
+array: .data ,1,2,3,4,4,5

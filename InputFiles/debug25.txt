@@ -1,0 +1,13 @@
+add r1, r8
+.extern r8
+hello: cmp r8, r8
+bne hello
+stop
+rts
+clr r8
+mov 3 , r1
+prn r1
+not r1
+prn r1
+stop
+str: .string "stopped"

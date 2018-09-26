@@ -1,0 +1,3 @@
+.extern hi
+hi: add 10, r0
+cmp hi ,hi

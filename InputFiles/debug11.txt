@@ -1,0 +1,2 @@
+str: .string "order is not correct"
+ERROR: r1, mov 10, r7

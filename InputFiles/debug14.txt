@@ -1,0 +1,5 @@
+err2: .string "illegal use of method 0"
+not 2
+clr 12
+inc K
+K: mov 31, r0

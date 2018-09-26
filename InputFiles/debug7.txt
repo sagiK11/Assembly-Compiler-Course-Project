@@ -1,0 +1,7 @@
+.extern HELLO
+.entry hello
+hello: add -999 , r0
+cmp HELLO, hello
+sub -999 , r0
+cmp 1 , r0
+
