@@ -1,11 +1,4 @@
-"C:\Program Files\JetBrains\CLion 2017.3.4\bin\cmake\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" C:\Users\Sagi1\CLionProjects\SystemProgrammingLab
--- The C compiler identification is GNU 7.3.0
--- Check for working C compiler: C:/Program Files (x86)/mingw-w64/i686-7.3.0-posix-dwarf-rt_v5-rev0/mingw32/bin/gcc.exe
--- Check for working C compiler: C:/Program Files (x86)/mingw-w64/i686-7.3.0-posix-dwarf-rt_v5-rev0/mingw32/bin/gcc.exe -- works
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
--- Detecting C compile features
--- Detecting C compile features - done
+"C:\Program Files\JetBrains\CLion 2019.3.2\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" C:\Users\Sagi1\CLionProjects\SystemProgrammingLab
 -- Configuring done
 -- Generating done
 -- Build files have been written to: C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/cmake-build-debug

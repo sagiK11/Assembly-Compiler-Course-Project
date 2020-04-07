@@ -11,20 +11,20 @@
 				<Option working_dir="C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
 				<Option working_dir="C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="SystemProgrammingLab">
@@ -35,15 +35,15 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/."/>
-					<Add directory="C:/Program Files (x86)/mingw-w64/i686-7.3.0-posix-dwarf-rt_v5-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.3.0/include"/>
-					<Add directory="C:/Program Files (x86)/mingw-w64/i686-7.3.0-posix-dwarf-rt_v5-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.3.0/include-fixed"/>
-					<Add directory="C:/Program Files (x86)/mingw-w64/i686-7.3.0-posix-dwarf-rt_v5-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/include"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/../../../../i686-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 SystemProgrammingLab"/>
-					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 SystemProgrammingLab"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="SystemProgrammingLab/fast">
@@ -54,25 +54,25 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/."/>
-					<Add directory="C:/Program Files (x86)/mingw-w64/i686-7.3.0-posix-dwarf-rt_v5-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.3.0/include"/>
-					<Add directory="C:/Program Files (x86)/mingw-w64/i686-7.3.0-posix-dwarf-rt_v5-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.3.0/include-fixed"/>
-					<Add directory="C:/Program Files (x86)/mingw-w64/i686-7.3.0-posix-dwarf-rt_v5-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/include"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/../../../../i686-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 SystemProgrammingLab/fast"/>
-					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 SystemProgrammingLab/fast"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
 				<Option working_dir="C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-7~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
@@ -82,16 +82,64 @@
 		<Unit filename="C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/AuxFunc.c">
 			<Option target="SystemProgrammingLab"/>
 		</Unit>
-		<Unit filename="C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/DataTypes.c">
+		<Unit filename="C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/DataListHandler.c">
+			<Option target="SystemProgrammingLab"/>
+		</Unit>
+		<Unit filename="C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/ErrorPrinter.c">
+			<Option target="SystemProgrammingLab"/>
+		</Unit>
+		<Unit filename="C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/ExtListHandler.c">
+			<Option target="SystemProgrammingLab"/>
+		</Unit>
+		<Unit filename="C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/FIrstPassDataCoding.c">
 			<Option target="SystemProgrammingLab"/>
 		</Unit>
 		<Unit filename="C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/FirstPass.c">
 			<Option target="SystemProgrammingLab"/>
 		</Unit>
+		<Unit filename="C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/FirstPassCmdCoding.c">
+			<Option target="SystemProgrammingLab"/>
+		</Unit>
+		<Unit filename="C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/FirstPassExternCoding.c">
+			<Option target="SystemProgrammingLab"/>
+		</Unit>
+		<Unit filename="C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/FirstPassStringCoding.c">
+			<Option target="SystemProgrammingLab"/>
+		</Unit>
+		<Unit filename="C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/InputOutputHandler.c">
+			<Option target="SystemProgrammingLab"/>
+		</Unit>
+		<Unit filename="C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/InstructionsListHandler.c">
+			<Option target="SystemProgrammingLab"/>
+		</Unit>
+		<Unit filename="C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/KeyWords.c">
+			<Option target="SystemProgrammingLab"/>
+		</Unit>
 		<Unit filename="C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/LineAnalysis.c">
 			<Option target="SystemProgrammingLab"/>
 		</Unit>
+		<Unit filename="C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/LineListHandler.c">
+			<Option target="SystemProgrammingLab"/>
+		</Unit>
+		<Unit filename="C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/ParametersListHandler.c">
+			<Option target="SystemProgrammingLab"/>
+		</Unit>
 		<Unit filename="C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/SecondPass.c">
+			<Option target="SystemProgrammingLab"/>
+		</Unit>
+		<Unit filename="C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/SecondPassCmdCoding.c">
+			<Option target="SystemProgrammingLab"/>
+		</Unit>
+		<Unit filename="C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/SecondPassParametersCoding.c">
+			<Option target="SystemProgrammingLab"/>
+		</Unit>
+		<Unit filename="C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/SecondPassRegisterCoding.c">
+			<Option target="SystemProgrammingLab"/>
+		</Unit>
+		<Unit filename="C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/SecondPassSpecialActionCoding.c">
+			<Option target="SystemProgrammingLab"/>
+		</Unit>
+		<Unit filename="C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/SymbolTableHandler.c">
 			<Option target="SystemProgrammingLab"/>
 		</Unit>
 		<Unit filename="C:/Users/Sagi1/CLionProjects/SystemProgrammingLab/data.h">
