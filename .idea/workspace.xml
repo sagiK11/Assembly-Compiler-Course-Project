@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
     <generated>
       <config projectName="SystemProgrammingLab" targetName="SystemProgrammingLab" />
     </generated>
@@ -12,54 +12,106 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a3176a7c-a673-4620-a05c-a2ebece02e0a" name="Default" comment="" />
+    <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ClangdSettings">
-    <option name="formatViaClangd" value="false" />
-  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
-  <component name="ProjectId" id="1Vr1qlmAHtzdDwljDVn2GVX8lan" />
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
-    <option name="showLibraryContents" value="true" />
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="data.h" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/data.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>temp</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>&quot;\n&quot;</replace>
+    </replaceStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/SecondPass.c" />
+        <option value="$PROJECT_DIR$/DataTypes.c" />
+        <option value="$PROJECT_DIR$/LineAnalysis.c" />
+        <option value="$PROJECT_DIR$/FirstPass.c" />
+        <option value="$PROJECT_DIR$/AuxFunc.c" />
+        <option value="$PROJECT_DIR$/Assembler.c" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="27" />
+    <option name="y" value="29" />
+    <option name="width" value="1346" />
+    <option name="height" value="698" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="SystemProgrammingLab" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SystemProgrammingLab" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="CPPToolchains" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
   </component>
-  <component name="RunManager" selected="CMake Application.SystemProgrammingLab">
-    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SystemProgrammingLab" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="C:\Users\Sagi1\CLionProjects\SystemProgrammingLab\InputFiles\debug1.txt" WORKING_DIR="file://$PROJECT_DIR$/InputFiles" PASS_PARENT_ENVS_2="true" PROJECT_NAME="SystemProgrammingLab" TARGET_NAME="SystemProgrammingLab" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="SystemProgrammingLab" RUN_TARGET_NAME="SystemProgrammingLab">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <list>
-      <item itemvalue="CMake Application.Build All" />
-      <item itemvalue="CMake Application.SystemProgrammingLab" />
-    </list>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
+  <component name="RunDashboard">
+    <option name="ruleStates">
       <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
       </list>
     </option>
+  </component>
+  <component name="RunManager" selected="Application.SystemProgrammingLab">
+    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all" />
+    <configuration name="SystemProgrammingLab" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="SystemProgrammingLab" TARGET_NAME="SystemProgrammingLab" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="SystemProgrammingLab" RUN_TARGET_NAME="SystemProgrammingLab" />
+    <list>
+      <item itemvalue="Application.Build All" />
+      <item itemvalue="Application.SystemProgrammingLab" />
+    </list>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -72,87 +124,327 @@
       <option name="presentableId" value="Default" />
       <updated>1537913889332</updated>
       <workItem from="1537913891430" duration="991000" />
-      <workItem from="1537957665953" duration="4385000" />
-      <workItem from="1577996616162" duration="32000" />
-      <workItem from="1586094822951" duration="7180000" />
-      <workItem from="1586182877525" duration="5309000" />
-      <workItem from="1586199984736" duration="8474000" />
-      <workItem from="1586242731465" duration="9158000" />
+      <workItem from="1537957665953" duration="3844000" />
     </task>
     <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="4835000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="7" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Statistic" order="7" />
+      <window_info anchor="bottom" id="CMake" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
+    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="668" y="240" key="#Build_All" timestamp="1586096677983">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="668" y="240" key="#Build_All/0.0.1920.1040@0.0.1920.1040" timestamp="1586096677983" />
-    <state x="182" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586098248204">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="182" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586098248204" />
-    <state x="693" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1586250917642">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="693" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1586250917642" />
-    <state x="694" y="279" key="EnvironmentVariablesDialog" timestamp="1586097036698">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="694" y="279" key="EnvironmentVariablesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586097036698" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1586098217820">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1586098217820" />
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1586250957897">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586250957897" />
-    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1586250957897">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586250957897" />
-    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1586250957897">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586250957897" />
-    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1586250957897">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586250957897" />
-    <state width="1877" height="242" key="GridCell.Tab.1.bottom" timestamp="1586243983989">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="242" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586243983989" />
-    <state width="1877" height="242" key="GridCell.Tab.1.center" timestamp="1586243983989">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="242" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586243983989" />
-    <state width="1877" height="242" key="GridCell.Tab.1.left" timestamp="1586243983989">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="242" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586243983989" />
-    <state width="1877" height="242" key="GridCell.Tab.1.right" timestamp="1586243983989">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="242" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586243983989" />
-    <state x="330" y="147" key="SettingsEditor" timestamp="1586184071235">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="330" y="147" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1586184071235" />
-    <state x="882" y="113" width="646" height="813" key="find.popup" timestamp="1586249809672">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="882" y="113" width="646" height="813" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1586249809672" />
-    <state x="680" y="160" key="refactoring.ChangeSignatureDialog" timestamp="1586248571541">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="680" y="160" key="refactoring.ChangeSignatureDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586248571541" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1586200121691">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1586200121691" />
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Assembler.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="741">
+          <caret line="39" column="22" lean-forward="true" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AuxFunc.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5339">
+          <caret line="281" column="23" selection-start-line="281" selection-start-column="23" selection-end-line="281" selection-end-column="23" />
+          <folding>
+            <element signature="e#315#397#0" />
+            <element signature="e#315#583#0" />
+            <element signature="e#584#646#0" />
+            <element signature="e#584#5942#0" />
+            <element signature="e#5943#6006#0" />
+            <element signature="e#5943#6712#0" />
+            <element signature="e#6713#6792#0" />
+            <element signature="e#6713#7335#0" />
+            <element signature="e#7336#7389#0" />
+            <element signature="e#7336#8813#0" />
+            <element signature="e#8814#8848#0" />
+            <element signature="e#8814#10375#0" />
+            <element signature="e#10376#10407#0" />
+            <element signature="e#10376#11461#0" />
+            <element signature="e#11462#11493#0" />
+            <element signature="e#11462#12488#0" />
+            <element signature="e#12489#12585#0" />
+            <element signature="e#12489#13066#0" />
+            <element signature="e#13067#13147#0" />
+            <element signature="e#13067#13837#0" />
+            <element signature="e#13838#13897#0" />
+            <element signature="e#13838#14192#0" />
+            <element signature="e#14193#14235#0" />
+            <element signature="e#14193#15759#0" />
+            <element signature="e#15760#15833#0" />
+            <element signature="e#15760#16281#0" />
+            <element signature="e#16282#16357#0" />
+            <element signature="e#16282#16854#0" />
+            <element signature="e#16855#16934#0" />
+            <element signature="e#16855#17288#0" />
+            <element signature="e#17289#17378#0" />
+            <element signature="e#17289#18787#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SecondPass.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2204">
+          <caret line="116" column="18" selection-start-line="116" selection-start-column="18" selection-end-line="116" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LineAnalysis.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#80#169#0" />
+            <element signature="e#80#488#0" />
+            <element signature="e#489#559#0" />
+            <element signature="e#489#1220#0" />
+            <element signature="e#1221#1320#0" />
+            <element signature="e#1221#2506#0" />
+            <element signature="e#2507#2644#0" />
+            <element signature="e#2507#3439#0" />
+            <element signature="e#3440#3538#0" />
+            <element signature="e#3440#3890#0" />
+            <element signature="e#3891#3981#0" />
+            <element signature="e#3891#4209#0" />
+            <element signature="e#4210#4283#0" />
+            <element signature="e#4210#4700#0" />
+            <element signature="e#4701#4777#0" />
+            <element signature="e#4701#5628#0" />
+            <element signature="e#5629#5681#0" />
+            <element signature="e#5629#7537#0" />
+            <element signature="e#7538#7601#0" />
+            <element signature="e#7538#8778#0" />
+            <element signature="e#8779#8843#0" />
+            <element signature="e#8779#9808#0" />
+            <element signature="e#9809#9841#0" />
+            <element signature="e#9809#10674#0" />
+            <element signature="e#10675#10712#0" />
+            <element signature="e#10675#11870#0" />
+            <element signature="e#11871#11947#0" />
+            <element signature="e#11871#12230#0" />
+            <element signature="e#12232#12487#0" />
+            <element signature="e#12489#12888#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SecondPass.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3325">
+          <caret line="44" selection-start-line="44" selection-end-line="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataTypes.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="417" column="1" lean-forward="true" selection-start-line="417" selection-start-column="1" selection-end-line="417" selection-end-column="1" />
+          <folding>
+            <element signature="e#254#303#0" />
+            <element signature="e#2271#2326#0" />
+            <element signature="e#2271#3961#0" />
+            <element signature="e#3962#4046#0" />
+            <element signature="e#3962#4304#0" />
+            <element signature="e#4305#4383#0" />
+            <element signature="e#4305#4924#0" />
+            <element signature="e#4925#4989#0" />
+            <element signature="e#4925#5623#0" />
+            <element signature="e#5624#5691#0" />
+            <element signature="e#5624#6078#0" />
+            <element signature="e#6079#6136#0" />
+            <element signature="e#6079#6987#0" />
+            <element signature="e#6988#7049#0" />
+            <element signature="e#6988#7670#0" />
+            <element signature="e#7671#7734#0" />
+            <element signature="e#7671#8411#0" />
+            <element signature="e#8412#8463#0" />
+            <element signature="e#8412#9072#0" />
+            <element signature="e#9073#9123#0" />
+            <element signature="e#9073#9517#0" />
+            <element signature="e#9518#9572#0" />
+            <element signature="e#8448#8788#0" />
+            <element signature="e#9915#9948#0" />
+            <element signature="e#8843#9078#1" />
+            <element signature="e#10207#10239#0" />
+            <element signature="e#9112#9299#1" />
+            <element signature="e#10450#10520#0" />
+            <element signature="e#9371#9755#1" />
+            <element signature="e#10928#10964#0" />
+            <element signature="e#9793#10005#1" />
+            <element signature="e#11200#11230#0" />
+            <element signature="e#10037#10261#1" />
+            <element signature="e#11478#11516#0" />
+            <element signature="e#10301#10646#1" />
+            <element signature="e#11929#11959#0" />
+            <element signature="e#10678#10865#1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assembler.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FirstPass.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="760">
+          <caret line="315" selection-start-line="315" selection-end-line="315" />
+          <folding>
+            <element signature="e#311#412#0" />
+            <element signature="e#311#1396#0" />
+            <element signature="e#1397#1464#0" />
+            <element signature="e#1397#2330#0" />
+            <element signature="e#2331#2404#0" />
+            <element signature="e#2331#4011#0" />
+            <element signature="e#4012#4088#0" />
+            <element signature="e#4012#4750#0" />
+            <element signature="e#4751#4803#0" />
+            <element signature="e#4751#5211#0" />
+            <element signature="e#5212#5280#0" />
+            <element signature="e#5212#6028#0" />
+            <element signature="e#6029#6113#0" />
+            <element signature="e#6029#8404#0" />
+            <element signature="e#8405#8488#0" />
+            <element signature="e#8405#8896#0" />
+            <element signature="e#8897#8988#0" />
+            <element signature="e#8897#9213#0" />
+            <element signature="e#9214#9304#0" />
+            <element signature="e#9214#9544#0" />
+            <element signature="e#9545#9637#0" />
+            <element signature="e#9545#9884#0" />
+            <element signature="e#9885#10318#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LineAnalysis.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="931">
+          <caret line="450" selection-start-line="450" selection-end-line="450" />
+          <folding>
+            <element signature="e#80#169#0" />
+            <element signature="e#80#488#0" />
+            <element signature="e#489#559#0" />
+            <element signature="e#489#1220#0" />
+            <element signature="e#1221#1320#0" />
+            <element signature="e#1221#2506#0" />
+            <element signature="e#2507#2644#0" />
+            <element signature="e#2507#3439#0" />
+            <element signature="e#3440#3538#0" />
+            <element signature="e#3440#3890#0" />
+            <element signature="e#3891#3981#0" />
+            <element signature="e#3891#4209#0" />
+            <element signature="e#4210#4283#0" />
+            <element signature="e#4210#4700#0" />
+            <element signature="e#4701#4777#0" />
+            <element signature="e#4701#5628#0" />
+            <element signature="e#5629#5681#0" />
+            <element signature="e#5629#7537#0" />
+            <element signature="e#7538#7601#0" />
+            <element signature="e#7538#8778#0" />
+            <element signature="e#8779#8843#0" />
+            <element signature="e#8779#9808#0" />
+            <element signature="e#9809#9841#0" />
+            <element signature="e#9809#10674#0" />
+            <element signature="e#10675#10712#0" />
+            <element signature="e#10675#11870#0" />
+            <element signature="e#11871#11947#0" />
+            <element signature="e#11871#12230#0" />
+            <element signature="e#12232#12487#0" />
+            <element signature="e#12489#12888#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AuxFunc.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="500" selection-start-line="500" selection-end-line="500" />
+          <folding>
+            <element signature="e#315#397#0" />
+            <element signature="e#315#583#0" />
+            <element signature="e#584#646#0" />
+            <element signature="e#584#5942#0" />
+            <element signature="e#5943#6006#0" />
+            <element signature="e#5943#6712#0" />
+            <element signature="e#6713#6792#0" />
+            <element signature="e#6713#7335#0" />
+            <element signature="e#7336#7389#0" />
+            <element signature="e#7336#8813#0" />
+            <element signature="e#8814#8848#0" />
+            <element signature="e#8814#10375#0" />
+            <element signature="e#10376#10407#0" />
+            <element signature="e#10376#11461#0" />
+            <element signature="e#11462#11493#0" />
+            <element signature="e#11462#12488#0" />
+            <element signature="e#12489#12585#0" />
+            <element signature="e#12489#13066#0" />
+            <element signature="e#13067#13147#0" />
+            <element signature="e#13067#13837#0" />
+            <element signature="e#13838#13897#0" />
+            <element signature="e#13838#14192#0" />
+            <element signature="e#14193#14235#0" />
+            <element signature="e#14193#15759#0" />
+            <element signature="e#15760#15833#0" />
+            <element signature="e#15760#16281#0" />
+            <element signature="e#16282#16357#0" />
+            <element signature="e#16282#16854#0" />
+            <element signature="e#16855#16934#0" />
+            <element signature="e#16855#17288#0" />
+            <element signature="e#17289#17378#0" />
+            <element signature="e#17289#18787#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
   </component>
   <component name="masterDetails">
     <states>

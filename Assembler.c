@@ -1,4 +1,4 @@
-#include "declarationsHeader.h"
+#include "data.h"
 
 symPtr symTableHead;
 paramsPtr paramsListHead;
@@ -6,64 +6,51 @@ dataPtr dataListHead;
 insPtr insListHead;
 size_t dataListLength;
 size_t insListLength;
-char *fileName;
+char* fileName;
 
 
-int main(int argc, char *argv[]) {
+int main(int argc, char* argv[])
+{
+    FILE* fd;
+    size_t fileIndex = 1;
 
     if (argc < MIN_ARGUMENTS) {
         printError(not_enough_params, "");
         exit(EXIT_FAILURE);
     }
 
-    translateFiles(argc, argv);
-
-    return EXIT_SUCCESS;
-}
-
-void translateFiles(int argc, char **argv) {
-    FILE *fd;
-    size_t fileIndex = 1;
-
-    for (; argc > 1; --argc) {
-        if ((fd = fopen(argv[fileIndex], READ_ONLY)) == NULL) {
-            printError(file_op_err, argv[fileIndex]);
+    TRANSLATE_ALL_FILES
+        if ((fd = fopen(argv[fileIndex] , READ_ONLY)) == NULL) {
+            printError(file_op_err , argv[fileIndex]);
             exit(EXIT_FAILURE);
         }
 
         fileName = argv[fileIndex++];
-        parseFileName(fileName);
-        resetErrorFlag();
+        *strchr( fileName , DOT) = STR_END;
+
+        /*Restarting the error flag.*/
+        generalError = FALSE;
+
+        /*First-pass making the DataList & calculating length of memory words.*/
         firstPass(fd);
-        rewindForSecondPass(fd);
+
+        /*Returning the fd to the of the file for the second pass.*/
+        rewind(fd);
+
+        /*Second-pass coding the rest of the code & crating the files.*/
         secondPass(fd);
-        freeDataStructures();
-        closeFile(fd);
+
+        /*Freeing data structures I used  & closing the file.*/
+        freeSymTable();
+        freeParamsList();
+        freeExtList();
+        freeDataList();
+        freeInsList();
+        fclose(fd);
+
+        /*For translating several.*/
+        --argc;
     }
 
-}
-
-void rewindForSecondPass(FILE *fd) {
-    rewind(fd);
-}
-
-void resetErrorFlag() {
-    generalError = FALSE;
-}
-
-void parseFileName() {
-    *strchr(fileName, DOT) = STR_END;
-}
-
-void closeFile(FILE *fd) {
-    fclose(fd);
-}
-
-void freeDataStructures() {
-    freeSymTable();
-    freeParamsList();
-    freeExtList();
-    freeDataList();
-    freeInsList();
-
+    return EXIT_SUCCESS;
 }

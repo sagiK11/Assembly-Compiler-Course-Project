@@ -7,9 +7,9 @@ include_directories(.)
 
 add_executable(SystemProgrammingLab
         Assembler.c
-        "AuxiliaryFunctions .c"
-        declarationsHeader.h
-        KeyWords.c
+        AuxFunc.c
+        data.h
+        DataTypes.c
         FirstPass.c
         LineAnalysis.c
-        SecondPass.c ErrorPrinter.c InputOutputHandler.c SymbolTableHandler.c ParametersListHandler.c DataListHandler.c InstructionsListHandler.c ExtListHandler.c LineListHandler.c SecondPassCmdCoding.c SecondPassParametersCoding.c SecondPassSpecialActionCoding.c SecondPassRegisterCoding.c FIrstPassDataCoding.c FirstPassStringCoding.c FirstPassExternCoding.c FirstPassCmdCoding.c)
+        SecondPass.c)
