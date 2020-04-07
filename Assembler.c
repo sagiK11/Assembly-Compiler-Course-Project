@@ -9,20 +9,20 @@ size_t insListLength;
 char* fileName;
 
 
-int main(int argc, char* argv[])
-{
+int main(int argc, char* argv[]){
+    
     FILE* fd;
     size_t fileIndex = 1;
 
     if (argc < MIN_ARGUMENTS) {
         printError(not_enough_params, "");
-        exit(EXIT_FAILURE);
+        exit( EXIT_FAILURE );
     }
 
     TRANSLATE_ALL_FILES
         if ((fd = fopen(argv[fileIndex] , READ_ONLY)) == NULL) {
             printError(file_op_err , argv[fileIndex]);
-            exit(EXIT_FAILURE);
+            exit( EXIT_FAILURE );
         }
 
         fileName = argv[fileIndex++];
@@ -31,13 +31,13 @@ int main(int argc, char* argv[])
         /*Restarting the error flag.*/
         generalError = FALSE;
 
-        /*First-pass making the DataList & calculating length of memory words.*/
+        /*First-pass making the DataList & calculating length of the memory words.*/
         firstPass(fd);
 
-        /*Returning the fd to the of the file for the second pass.*/
+        /*Returning the fd to the beginning of the file for the second pass.*/
         rewind(fd);
 
-        /*Second-pass coding the rest of the code & crating the files.*/
+        /*Second-pass coding the rest of the code & creating the files.*/
         secondPass(fd);
 
         /*Freeing data structures I used  & closing the file.*/
