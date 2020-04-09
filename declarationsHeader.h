@@ -3,7 +3,7 @@
 #include <string.h>
 #include <ctype.h>
 
-/*------------------*//*Macros.*/
+/*Macros.*/
 #define TRUE 1
 #define FALSE 0
 #define MIN_ARGUMENTS 2
@@ -50,7 +50,7 @@
 {\
     if(!p){\
         fprintf(stderr,"Memory allocation failed. Exiting.\n");\
-        fprintf(stderr,"Error in pointer: %s line: %d\n",#p,lineCnt);\
+        fprintf(stderr,"Error in pointer: %s line: %d\n",#p,lineNumber);\
         exit(EXIT_FAILURE);\
     }\
 }
@@ -143,11 +143,11 @@ typedef struct lineList {
 } lineNode;
 /*------------------*//*Global variables.*/
 boolean generalError;
-size_t lineCnt;
+size_t lineNumber;
 char *line;
 linePtr lineListHead;
 size_t lineListLength;
-/*------------------*//*func prototype*/
+/*func prototype*/
 /*------------------*//*Assembler function*/
 void translateFiles(int argc, char **argv);
 
@@ -176,9 +176,9 @@ void calCmdLine(int *);
 
 void analyseParameters();
 
-void getLineType();
+void parseLine(char *line);
 
-void resetMemoryWordsLength();
+void incrementLinesNumber();
 
 void arrayCoding(linePtr, char *, int *);
 
@@ -189,6 +189,12 @@ void checkForFloatErrors(char *, char *);
 void codeTwoParameters(char *);
 
 void codeOneParameter(char *);
+
+void incMemoryWordsByOne();
+
+void incMemoryWordsByTwo();
+
+void moveLineAfterSymbol(char *);
 
 boolean labelBeforeParam();
 
@@ -209,6 +215,8 @@ boolean dataIsAnArray(char *);
 boolean bothParametersAreRegisters(char *, char *);
 
 linePtr movePtrToFirstParameter(linePtr, char *);
+
+char *getLineFromFile(char *line, FILE *pIobuf);
 
 /*------------------*//*SecondPass functions*/
 void secondPass(FILE *);
@@ -250,6 +258,8 @@ void copyParameters(paramsPtr);
 void codedAsFirstParamIsLabel();
 
 void resetFlags();
+
+void resetLineNumber();
 
 void codedAsFirstParameterIsNumber(paramsPtr);
 
@@ -304,11 +314,15 @@ boolean searchLabel(symPtr, Word, char *, char *);
 /*------------------*//*Aux function*/
 void removeSpaces(char *);
 
-void printError(int, char *);
+void printError(int);
+
+void printErrorWithComment(int, char *);
+
+void turnOnErrorFlag();
 
 void printWarning(int, char *, size_t);
 
-void fillLineList();
+void createLineList();
 
 void checkForErrors(char *, Word);
 
@@ -326,6 +340,12 @@ void isFilesAreEqual();
 
 void memWordToString(Word, size_t, size_t, size_t, char *, char *);
 
+void extSymbolSetting(char *, char *, symPtr);
+
+void symInitailzeSetting(symPtr, int *, boolean);
+
+void insSymbolSetting(char *, symPtr);
+
 char *decToWeirdBinary(int);
 
 boolean symIsIllegal(char *);
@@ -337,6 +357,8 @@ boolean isBinaryAction(char *);
 size_t getNumberOfParametersInLine();
 
 size_t findOperandType();
+
+boolean symIsExtern(symPtr, char *);
 
 /*------------------*//*line analysis functions*/
 void analyzeLine(int *);

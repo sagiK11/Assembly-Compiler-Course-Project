@@ -3,69 +3,83 @@
 extern symPtr symTableHead;
 extern struct keyWords keys[];
 
+
 /*
  * Adding the passed string to the symbol table.
  */
-void addToSymTable(char *newSym, int *CNT, boolean definedInFile) {
-    symPtr p = symTableHead, newNode;
+void addToSymTable(char *newSym, int *cnt, boolean definedInFile) {
+    symPtr ptr = symTableHead, newNode;
     char lineCpy[LINE_SIZE];
     static symPtr last;
-    int i;
 
-    /*The new symbol is extern.*/
-    while (p != NULL) {
-        if (strcmp(p->symName, newSym) == EQUAL) {
-            if (p->data == -1 && p->definedInFile == FALSE) {
-                p->isExt = TRUE;
-                return;
-            }
-        }
-        p = p->next;
-    }
+    if (symIsExtern(ptr, newSym))
+        return;
+
     strcpy(lineCpy, line);
     newNode = (symPtr) malloc(sizeof(symbol));
     MEMORY_ERROR(newNode)
 
     strcpy(newNode->symName, newSym);
-    /*This means its a label that hasn't been defined yet.*/
-    newNode->data = CNT != NULL ? (*CNT) : -1;
-    newNode->definedInFile = definedInFile;
-    newNode->isExt = FALSE;
-    newNode->isEnt = FALSE;
-    newNode->next = NULL;
+    symInitailzeSetting(newNode, cnt, definedInFile);;
+    extSymbolSetting(lineCpy, newSym, newNode);
+    insSymbolSetting(lineCpy, newNode);
 
-    /* testing if the symbol is extern.*/
-    if (strstr(lineCpy, GUIDING_SENTENCE_EXTERN)) {
-        symIsIllegal(newSym); /*Testing for legit.*/
-        newNode->isExt = TRUE;
+    if (symTableHead == NULL) {
+        symTableHead = newNode;
+        last = symTableHead;
+    } else {
+        last->next = newNode;
+        last = last->next;
     }
+}
 
-    /*Testing if the symbol is labeled with instruction sentence.*/
+boolean symIsExtern(symPtr ptr, char *newSym) {
+    while (ptr != NULL) {
+        if (strcmp(ptr->symName, newSym) == EQUAL) {
+            if (ptr->data == -1 && !ptr->definedInFile) {
+                ptr->isExt = TRUE;
+                return TRUE;
+            }
+        }
+        ptr = ptr->next;
+    }
+    return FALSE;
+}
+
+void insSymbolSetting(char *lineCpy, symPtr newNode) {
+    int i;
     for (i = 0; i < ACTIONS_NUM; i++) {
         if (strstr(lineCpy, keys[i].symbol)) {
             newNode->inInsSen = TRUE;
         }
     }
-    /*List is empty.*/
-    if (symTableHead == NULL) {
-        symTableHead = newNode;
-        last = symTableHead;
+}
 
-    } else { /*List is not empty.*/
-        last->next = newNode;
-        last = last->next;
+void symInitailzeSetting(symPtr newNode, int *cnt, boolean definedInFile) {
+    newNode->data = cnt != NULL ? (*cnt) : -1;
+    newNode->definedInFile = definedInFile;
+    newNode->isExt = FALSE;
+    newNode->isEnt = FALSE;
+    newNode->next = NULL;
+}
+
+void extSymbolSetting(char *lineCpy, char *newSym, symPtr pSymbol) {
+    if (strstr(lineCpy, GUIDING_SENTENCE_EXTERN)) {
+        symIsIllegal(newSym);
+        pSymbol->isExt = TRUE;
     }
+
 }
 
 /*
  * After the first pass we update each symbol table to its correct address.
  * */
 void updateSymbolTable(int *IC) {
-    symPtr p = symTableHead;
+    symPtr ptr = symTableHead;
 
-    for (; p != NULL; p = p->next) {
-        if (p->isExt != TRUE && p->inInsSen != TRUE)
-            p->data += (*IC);
+    for (; ptr != NULL; ptr = ptr->next) {
+        if (ptr->isExt != TRUE && ptr->inInsSen != TRUE)
+            ptr->data += (*IC);
     }
 }
 
@@ -79,14 +93,14 @@ boolean errorsInSymTable() {
 
     for (; ptr; ptr = ptr->next) {
         if (ptr->data == ext && ptr->isExt != TRUE) {
-            printError(undef_symbol, ptr->symName);
+            printErrorWithComment(undef_symbol, ptr->symName);
             return TRUE;
         }
     }
 
     for (ptr = symTableHead; ptr; ptr = ptr->next) {
-        if (ptr->isEnt == TRUE && ptr->isExt == TRUE)
-            printError(symbol_is_ent_and_ext, ptr->symName);
+        if (ptr->isEnt && ptr->isExt)
+            printErrorWithComment(symbol_is_ent_and_ext, ptr->symName);
     }
     return FALSE;
 }
@@ -118,7 +132,7 @@ void printSymTable() {
     while (p) {
         printf("'%s'\t| %d\t\t| %s\t\t| %s\t\t| %s\t\t|\n",
                p->symName, p->data, p->isExt == 1 ? "yes" : "no", p->inInsSen == 1 ? "yes" : "no",
-               p->isEnt == TRUE ? "yes" : "no");
+               p->isEnt ? "yes" : "no");
         p = p->next;
     }
     fprintf(stdout, "----------------------------------------------------------------------\n");
@@ -129,13 +143,12 @@ void printSymTable() {
  * Frees the symbol table.
  */
 void freeSymTable() {
-    symPtr p;
+    symPtr ptr;
 
     while (symTableHead != NULL) {
-        p = symTableHead;
+        ptr = symTableHead;
         symTableHead = symTableHead->next;
-        free(p);
+        free(ptr);
     }
-
     symTableHead = NULL;
 }

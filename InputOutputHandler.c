@@ -43,7 +43,7 @@ void writeObjectFile() {
 
     /*Appending the machine code file*/
     if ((!(res_fd = fopen(tempFileName, WRITE_ONLY)))) {
-        printError(err_app_file, "object file");
+        printErrorWithComment(err_app_file, "object file");
         exit(EXIT_FAILURE);
     }
 
@@ -82,13 +82,13 @@ void writeEntFile() {
     strcat(tempFileName, entFile);
 
     if (!(fd = fopen(tempFileName, WRITE_ONLY))) {
-        printError(writing_to_file, "ent file");
+        printErrorWithComment(writing_to_file, "ent file");
         exit(EXIT_FAILURE);
     }
 
     /*Writing to file the symbols & address.*/
     for (ptr = symTableHead; ptr; ptr = ptr->next) {
-        if (ptr->isEnt == TRUE && ++entSym) {
+        if (ptr->isEnt  && ++entSym) {
             sprintf(entAddress, "%d", ptr->data);/*Converting the address to string*/
             fputs(ptr->symName, fd);
             fputs(TAB, fd);
@@ -121,7 +121,7 @@ void writeExtFile() {
         return;
 
     if (!(fd = fopen(tempFileName, WRITE_ONLY))) {
-        printError(writing_to_file, "ext file");
+        printErrorWithComment(writing_to_file, "ext file");
         exit(EXIT_FAILURE);
     }
 

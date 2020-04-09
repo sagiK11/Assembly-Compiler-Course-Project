@@ -11,14 +11,12 @@ void addToInsList(Word *newWord, char *strWord, char *str) {
     insPtr newNode = (insPtr) malloc(sizeof(insNode));
     MEMORY_ERROR(newNode)
 
-    /*Updating the length of the list.*/
     insListLength++;
 
     newNode->data = (*newWord);
     strcpy(newNode->str, str);
     strcpy(newNode->strWord, strWord);
     newNode->next = NULL;
-
 
     if (insListHead == NULL) {
         insListHead = newNode;
@@ -34,14 +32,14 @@ void addToInsList(Word *newWord, char *strWord, char *str) {
  */
 void freeInsList() {
     insPtr ptr;
-    Word p;
+    Word pWord;
 
     while (insListHead != NULL) {
         ptr = insListHead;
 
         /*Freeing the word.*/
-        p = ptr->data;
-        free(p);
+        pWord = ptr->data;
+        free(pWord);
         insListHead = insListHead->next;
 
         /*Freeing the node itself.*/

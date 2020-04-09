@@ -59,9 +59,9 @@ void bracketsAndStrError(int type) {
                     --cnt;
                 } else {
                     if (type == STRING)
-                        printError(string_err, "");
+                        printError(string_err);
                     else
-                        printError(brack_err, "");
+                        printError(brack_err);
                     return;
                 }
             }
@@ -70,7 +70,7 @@ void bracketsAndStrError(int type) {
     if (closer == STRING && (cnt % 2) == 0)
         return;
     if (cnt != 0)
-        type == STRING ? printError(string_err, "") : printError(brack_err, "");
+        type == STRING ? printError(string_err) : printError(brack_err);
 }
 
 /*
@@ -88,7 +88,7 @@ void findSymbols(int *DC) {
             temp = ptr->str;
             temp2 = (strchr(temp, ISLABEL) + 1);
             if (strlen(temp2) != 0) {
-                printError(illegal_sym, temp);
+                printErrorWithComment(illegal_sym, temp);
                 return;
             }
             *(strchr(temp, ISLABEL)) = STR_END;
@@ -114,8 +114,8 @@ boolean symIsDefined(char *sym) {
     ptr = symTableHead;
 
     for (; ptr != NULL; ptr = ptr->next) {
-        if (strcmp(ptr->symName, sym) == EQUAL && ptr->definedInFile == TRUE) {
-            printError(sym_defined_already, sym);
+        if (strcmp(ptr->symName, sym) == EQUAL && ptr->definedInFile ) {
+            printErrorWithComment(sym_defined_already, sym);
         }
         if (strcmp((ptr->symName), sym) == EQUAL)
             return TRUE;
@@ -131,7 +131,7 @@ boolean symIsAKey(char *sym) {
 
     for (; i < NUM_OF_KEYS; ++i) {
         if (strcmp(sym, (keys[i].symbol)) == 0) {
-            printError(sym_is_key, sym);
+            printErrorWithComment(sym_is_key, sym);
             return TRUE;
         }
     }
@@ -148,13 +148,13 @@ boolean symIsIllegal(char *sym) {
     strcpy(p, sym);
 
     if ((strlen(sym) > symMaxLen) || (!(isalpha(p[0])))) {
-        printError(illegal_sym, sym);
+        printErrorWithComment(illegal_sym, sym);
         return TRUE;
     }
 
     while (p[i]) {
         if ((!isalnum(p[i]))) {
-            printError(illegal_sym, sym);
+            printErrorWithComment(illegal_sym, sym);
             return TRUE;
         }
         ++i;
@@ -176,18 +176,18 @@ void findWrongMethodUse() {
 
     /*Checking first parameter*/
     if ((temp = strstr(lineCpy, "#")) != NULL) {
-        if (isdigit(temp[1]) == FALSE && temp[1] != '-') {
+        if (!isdigit(temp[1])  && temp[1] != '-') {
             if (strchr(temp, COMMA))
                 *strchr(temp, COMMA) = STR_END;
-            printError(immediate_wrong_use, temp);
+            printErrorWithComment(immediate_wrong_use, temp);
         }
 
         /*Checking second parameter (if exists)*/
         if ((temp = strstr(++temp, "#")) != NULL) {
-            if (isdigit(temp[1]) == FALSE && temp[1] != '-' && temp[1] != '+') {
+            if (!isdigit(temp[1]) && temp[1] != '-' && temp[1] != '+') {
                 if (strchr(temp, C_BRACKETS))
                     *strchr(temp, C_BRACKETS) = STR_END;
-                printError(immediate_wrong_use, temp);
+                printErrorWithComment(immediate_wrong_use, temp);
             }
         }
     }
@@ -207,14 +207,14 @@ void commaError() {
     /*if the first char in cmd is null, its means we have no command in the line.*/
     /*Testing for a missing comma between two parameteres.*/
     if (cmd[0] != STR_END && isBinaryAction(cmd) && strchr(lineCpy, COMMA) == NULL) {
-        printError(missing_comma, "");
+        printError(missing_comma);
         return;
     }
 
     /*Its a cmd but its not binary action and we have a comma without ()*/
     if (cmd[0] != STR_END && !isBinaryAction(cmd) && strchr(lineCpy, COMMA) != NULL) {
         if (strchr(lineCpy, O_BRACKETS) == NULL) {
-            printError(extra_commas, "");
+            printError(extra_commas);
             return;
         }
     }
@@ -227,7 +227,7 @@ void commaError() {
 
     /*If its not a .data sentence, there's no shouldn't be more than 1 comma*/
     if (cntCommas > 1 && strstr(lineCpy, GUIDING_SENTENCE_INT) == NULL) {
-        printError(extra_commas, "");
+        printError(extra_commas);
         return;
     }
 
@@ -248,13 +248,13 @@ void commaError() {
 
     if (strstr(lineCpy, GUIDING_SENTENCE_INT) != NULL && cntCommas > 0 &&
         cntCommas + 1 < cntDigist) {
-        printError(missing_comma, "");
+        printError(missing_comma);
         return;;
     }
     /*The right relation between commas and ints is: digit num = commas+1*/
     if (strstr(lineCpy, GUIDING_SENTENCE_INT) != NULL && cntCommas > 0 &&
         cntCommas + 1 != cntDigist)
-        printError(extra_commas, "");
+        printError(extra_commas);
 
 }
 
@@ -273,9 +273,9 @@ void searchUndefChars() {
             continue;
 
         /*Skipping chars within the string.*/
-        if (lineCpy[i] == '\"' && IN_STRING == FALSE) {
+        if (lineCpy[i] == '\"' && !IN_STRING ) {
             IN_STRING = TRUE;
-        } else if (lineCpy[i] == '\"' && IN_STRING == TRUE) {
+        } else if (lineCpy[i] == '\"' && IN_STRING) {
             IN_STRING = FALSE;
         }
 
@@ -290,7 +290,7 @@ void searchUndefChars() {
             && lineCpy[i] != '+' && lineCpy[i] != ISCOMMENT) {
             strcpy(temp, (lineCpy + i));
             removeSpaces(temp);
-            printError(undef_char, temp);
+            printErrorWithComment(undef_char, temp);
 
         }
     }
@@ -313,9 +313,9 @@ void findRedundantInfo() {
                 if (strstr(ptr->str, GUIDING_SENTENCE_EXTERN) ||
                     strstr(ptr->str, GUIDING_SENTENCE_ENT)) {
                     if (i == 0) /*After*/
-                        printError(redu_info, ((ptr->next)->next)->str);
+                        printErrorWithComment(redu_info, ((ptr->next)->next)->str);
                     else /*Before*/
-                        printError(redu_info, prev->str);
+                        printErrorWithComment(redu_info, prev->str);
                 }
                 prev = ptr;
             }
@@ -324,7 +324,7 @@ void findRedundantInfo() {
 
     for (ptr = lineListHead, i = 0; cmd[0] != STR_END && ptr; ptr = ptr->next, i++) {
         if (strchr(ptr->str, C_BRACKETS) && i + 1 != lineListLength)
-            printError(redu_info, (ptr->next)->str);
+            printErrorWithComment(redu_info, (ptr->next)->str);
     }
 }
 
@@ -347,7 +347,7 @@ void labelError() {
 
         /*Testing for strings before the label definition.*/
         if (strchr(lineCpy, ISLABEL) == NULL) {
-            printError(sym_miss_place, "");
+            printError(sym_miss_place);
         }
 
         if (cmd[0] == STR_END)
@@ -360,7 +360,7 @@ void labelError() {
             if (strstr(ptr->str, keys[j].symbol) != NULL)
                 return;
         }
-        printError(order_error, "");
+        printError(order_error);
     }
 }
 
@@ -384,14 +384,14 @@ void paramsError() {
         for (ptr = lineListHead; ptr->next; ptr = ptr->next);
         for (i = 0; i < ACTIONS_NUM - 2; i++) {
             if (strstr(ptr->str, keys[i].symbol))
-                printError(missing_both_params, "");
+                printError(missing_both_params);
         }
 
         /*Missing second param.*/
         removeSpaces(lineCpy);
         lastChar = strlen(lineCpy) - 1;
         if (lineCpy[lastChar] == COMMA)
-            printError(missing_second_param, "");
+            printError(missing_second_param);
 
         /*Missing first param.*/
         firstParam = strtok(lineCpy, COMMA_STR);
@@ -401,7 +401,7 @@ void paramsError() {
 
         for (i = 0; i < ACTIONS_NUM - offset; i++) {
             if (strcmp(firstParam, keys[i].symbol) == EQUAL)
-                printError(missing_first_param, "");
+                printError(missing_first_param);
         }
     }
 }
@@ -419,20 +419,21 @@ void definerError() {
             return;
     }
 
-    printError(no_definer_in_line, "");
+    printError(no_definer_in_line);
 }
 
 void extOrEntError() {
     char lineCpy[LINE_SIZE];
     strcpy(lineCpy, line);
+    const int MIN_LENGTH = 2;
 
     if (strstr(lineCpy, GUIDING_SENTENCE_EXTERN) == NULL &&
         strstr(lineCpy, GUIDING_SENTENCE_ENT) == NULL) {
         return;
     }
 
-    if (lineListLength < 2)
-        printError(missing_sym, "");
+    if (lineListLength < MIN_LENGTH)
+        printError(missing_sym);
 }
 
 void stopRtsError() {
@@ -447,7 +448,7 @@ void stopRtsError() {
         if ((strcmp(ptr->str, "stop") == EQUAL) || (strcmp(ptr->str, "rts") == EQUAL)) {
             if (ptr->next == NULL)
                 return;
-            printError(illegal_operand, ptr->str);
+            printErrorWithComment(illegal_operand, ptr->str);
 
         }
     }

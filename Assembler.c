@@ -12,7 +12,7 @@ char *fileName;
 int main(int argc, char *argv[]) {
 
     if (argc < MIN_ARGUMENTS) {
-        printError(not_enough_params, "");
+        printError(not_enough_params);
         exit(EXIT_FAILURE);
     }
 
@@ -27,7 +27,7 @@ void translateFiles(int argc, char **argv) {
 
     for (; argc > 1; --argc) {
         if ((fd = fopen(argv[fileIndex], READ_ONLY)) == NULL) {
-            printError(file_op_err, argv[fileIndex]);
+            printErrorWithComment(file_op_err, argv[fileIndex]);
             exit(EXIT_FAILURE);
         }
 

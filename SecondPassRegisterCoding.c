@@ -15,10 +15,10 @@ void regActionCoding(Word *machWord, paramsPtr ptr) {
         (*machWord)->srcOp = 0;
         (*machWord)->destOp = 0;
     } else {
-        if (isBinaryAction(cmd) == FALSE)
+        if (!isBinaryAction(cmd) )
             unaryAction = TRUE;
-        if (unaryAction == FALSE && strlen(ptr->secondParam) == 0)
-            printError(missing_comma, "");
+        if (!unaryAction  && strlen(ptr->secondParam) == 0)
+            printError(missing_comma);
 
         if (unaryAction) {   /*Unary action, coding only the destination.*/
             unaryActionCoding(machWord, ptr);
@@ -98,7 +98,7 @@ paramIsARegisterSetting(Word *machWord, unsigned regNum, boolean regIsFirstParam
     (*machWord)->ERA = FALSE;
 
     /*Decides how to put the value of the register according to its place*/
-    if (regIsFirstParam && bin == TRUE)
+    if (regIsFirstParam && bin )
         ((*machWord)->address = (regNum) << offset);
     else
         (*machWord)->address = regNum;

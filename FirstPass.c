@@ -1,28 +1,26 @@
 #include "declarationsHeader.h"
 
 extern struct keyWords keys[];
-boolean sentenceWithLabel;
-boolean sentenceWithCommand;
-size_t memoryWords;
 
 /*
  * Takes one line from the file and runs tests over it and gathering info for the second pass.
  */
 void firstPass(FILE *fd) {
     int IC = STARTING_ADDRESS, DC = 0;
-    lineCnt = 0;
     line = (char *) malloc(sizeof(char) * LINE_SIZE);
     MEMORY_ERROR(line)
+    resetLineNumber();
 
-    while (fgets(line, LINE_SIZE, fd) && ++lineCnt) { /*Taking one line at a time.*/
-        *strchr(line, '\n') = STR_END;
+    while (getLineFromFile(line, fd)) {
+        parseLine(line);
+        incrementLinesNumber();
 
         if (lineIsComment(line))
             continue;
 
-        fillLineList();
+        createLineList();
         analyzeLine(&DC);
-        if (generalError == FALSE)
+        if (!generalError)
             codeTheLine(&IC, &DC);
         freeLineList();
     }
@@ -30,12 +28,11 @@ void firstPass(FILE *fd) {
     free(line);
 }
 
+
 /*
  * Codes the current line according to the type of the line.
  */
 void codeTheLine(int *IC, int *DC) {
-    resetMemoryWordsLength();
-    getLineType();
 
     if (lineWithDataDefinition())/*.data line - array or an int.*/
         codeDataLine(DC);
@@ -43,17 +40,8 @@ void codeTheLine(int *IC, int *DC) {
         codeStringLine(DC);
     else if (lineWithExternLabel()) /*Its a line with extern label*/
         externSymLine();
-    else if (sentenceWithCommand)/*Command line- calculating the number of words it'll take*/
+    else if (lineWithCommandDefinition())/*Command line- calculating the number of words it'll take*/
         calCmdLine(IC);
-}
-
-void resetMemoryWordsLength() {
-    memoryWords = 0;
-}
-
-void getLineType() {
-    sentenceWithLabel = lineWithLabelDefinition();
-    sentenceWithCommand = lineWithCommandDefinition();
 }
 
 boolean bothParametersAreRegisters(char *firstParam, char *secondParam) {
@@ -63,9 +51,9 @@ boolean bothParametersAreRegisters(char *firstParam, char *secondParam) {
 
 void checkForFloatErrors(char *firstParam, char *secondParam) {
     if (firstParam != NULL && strchr(firstParam, DOT))
-        printError(float_err, firstParam);
+        printErrorWithComment(float_err, firstParam);
     if (secondParam != NULL && strchr(secondParam, DOT))
-        printError(float_err, secondParam);
+        printErrorWithComment(float_err, secondParam);
 }
 
 

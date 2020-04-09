@@ -25,7 +25,7 @@ void arrayCoding(linePtr ptr, char *lineCpy, int *DC) {
     for (ptr = lineListHead; ptr && i != firstInt; ptr = ptr->next, i++);
 
     if (!(atoi(ptr->str)))
-        printError(order_error, "");
+        printError(order_error);
 
     for (; ptr; ptr = ptr->next) {
 
@@ -34,7 +34,7 @@ void arrayCoding(linePtr ptr, char *lineCpy, int *DC) {
         dataVar = strtok(temp, COMMA_STR);
         while (dataVar != NULL) {
             if (strchr(dataVar, DOT) != NULL)
-                printError(float_err, dataVar);
+                printErrorWithComment(float_err, dataVar);
             else
                 addToDataList(atoi(dataVar), DC);
             dataVar = strtok(NULL, COMMA_STR);
@@ -46,9 +46,9 @@ void oneNumberCoding(linePtr ptr, int *DC) {
     /*Getting to the first number.*/
     for (ptr = lineListHead; ptr && (!atoi(ptr->str)); ptr = ptr->next);
     if (ptr == NULL)
-        printError(data_line_with_no_data, "");
+        printError(data_line_with_no_data);
     else if (strchr(ptr->str, DOT))
-        printError(float_err, ptr->str);
+        printErrorWithComment(float_err, ptr->str);
     else
         addToDataList(atoi(ptr->str), DC);
 

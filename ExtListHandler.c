@@ -32,7 +32,7 @@ void updateExtList(int address) {
     extPtr exPtr;
     for (exPtr = extListHead; exPtr; exPtr = exPtr->next) {
 
-        if (exPtr->updated == FALSE) {
+        if (!exPtr->updated) {
             exPtr->address = address;
             exPtr->updated = TRUE;
             return;

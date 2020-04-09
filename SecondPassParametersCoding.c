@@ -5,16 +5,13 @@ extern paramsPtr paramsListHead;
 extern symPtr symTableHead;
 extern struct keyWords keys[];
 
-boolean firstParamCoded = FALSE, paramOneIsReg = FALSE, paramTwoIsReg = FALSE;
-boolean notImmediate = FALSE, hasSecondParam = FALSE, binaryAction = FALSE;
-boolean havntFoundReg1 = TRUE, havntFoundReg2 = TRUE;
+boolean firstParamCoded, isParamOneReg, isParamTwoReg;
+boolean isNotImmediate, isSecondParamAvailable, isBinAction;
 char firstParam[SYM_SIZE], secondParam[SYM_SIZE];
 char cmd[CMD_LENGTH], strWord[MEM_WORD_LEN], temp[STRING_SIZE];
 unsigned int reg1Num = 0, reg2Num = 0;
 
-/*
- * Codes the parameters.
- */
+
 void codeParameters() {
     paramsPtr ptr = paramsListHead;
     resetFlags();
@@ -31,12 +28,9 @@ void codeParameters() {
     if (codingParametersSuccessful(ptr))
         return;
 
-    printError(undef_parameter, secondParam);
+    printErrorWithComment(undef_parameter, secondParam);
 }
 
-boolean errorInLine(paramsPtr ptr) {
-    return ptr == NULL ? TRUE : FALSE;
-}
 
 boolean codingParametersSuccessful(paramsPtr ptr) {
     size_t paramsNum = getNumberOfParametersInLine();
@@ -51,8 +45,8 @@ boolean codingParametersSuccessful(paramsPtr ptr) {
     if (paramsNum == 1) /*No need to further check*/
         return TRUE;
 
-    if (firstParamCoded == FALSE)/*Checking if we had trouble coding parameter 1.*/
-        printError(undef_parameter, firstParam);
+    if (!firstParamCoded)/*Checking if we had trouble coding parameter 1.*/
+        printErrorWithComment(undef_parameter, firstParam);
 
     if (codedAsSecondParameterIsLabel())
         return TRUE;
@@ -68,9 +62,9 @@ boolean codingParametersSuccessful(paramsPtr ptr) {
 boolean codedAsSecondParameterIsRegister() {
     Word machWord;
 
-    if (paramTwoIsReg) {
+    if (isParamTwoReg) {
         MAKE_NEW_WORD
-        paramIsARegisterSetting(&machWord, reg2Num, FALSE, binaryAction);
+        paramIsARegisterSetting(&machWord, reg2Num, FALSE, isBinAction);
         memWordToString(machWord, INT_NUM_ADD, 0, 0, strWord, secondParam);
         addToInsList(&machWord, strWord, secondParam);
         return TRUE;
@@ -82,13 +76,13 @@ boolean codedAsSecondParameterIsNumber(paramsPtr ptr) {
     Word machWord;
 
     if (strchr((secondParam), IMMEDIATE_METHOD_ID) ||
-        ((atoi(secondParam) != 0 && ++notImmediate))) {
+        ((atoi(secondParam) != 0 && ++isNotImmediate))) {
         if (strcmp(cmd, "prn") != EQUAL && strcmp(cmd, "cmp") != EQUAL) {
-            printError(dst_meth0_illegal, secondParam);
+            printErrorWithComment(dst_meth0_illegal, secondParam);
             return TRUE;
         }
         MAKE_NEW_WORD
-        paramIsANumberSetting(&machWord, ptr->secondParam, notImmediate);
+        paramIsANumberSetting(&machWord, ptr->secondParam, isNotImmediate);
         memWordToString(machWord, INT_NUM_ADD, 0, 0, strWord, secondParam);
         addToInsList(&machWord, strWord, secondParam);
         return TRUE;
@@ -116,9 +110,9 @@ boolean codedAsSecondParameterIsLabel() {
 void codedAsFirstParameterIsRegister() {
     Word machWord;
 
-    if (paramOneIsReg) {
+    if (isParamOneReg) {
         MAKE_NEW_WORD
-        paramIsARegisterSetting(&machWord, reg1Num, TRUE, binaryAction);
+        paramIsARegisterSetting(&machWord, reg1Num, TRUE, isBinAction);
         memWordToString(machWord, INT_NUM_ADD, 0, 0, strWord, firstParam);
         addToInsList(&machWord, strWord, firstParam);
         firstParamCoded = TRUE;
@@ -130,9 +124,9 @@ void codedAsFirstParameterIsNumber(paramsPtr ptr) {
     Word machWord;
 
     if (strchr((firstParam), IMMEDIATE_METHOD_ID) ||
-        ((atoi(firstParam) != 0 && ++notImmediate))) {
+        ((atoi(firstParam) != 0 && ++isNotImmediate))) {
         MAKE_NEW_WORD
-        paramIsANumberSetting(&machWord, ptr->firstParam, notImmediate);
+        paramIsANumberSetting(&machWord, ptr->firstParam, isNotImmediate);
         memWordToString(machWord, INT_NUM_ADD, 0, 0, strWord, firstParam);
         addToInsList(&machWord, strWord, firstParam);
         firstParamCoded = TRUE;
@@ -142,17 +136,15 @@ void codedAsFirstParameterIsNumber(paramsPtr ptr) {
 
 void resetFlags() {
     firstParamCoded = FALSE;
-    paramOneIsReg = FALSE;
-    paramTwoIsReg = FALSE;
-    notImmediate = FALSE;
-    hasSecondParam = FALSE;
-    binaryAction = FALSE;
-    havntFoundReg1 = TRUE;
-    havntFoundReg2 = TRUE;
+    isParamOneReg = FALSE;
+    isParamTwoReg = FALSE;
+    isNotImmediate = FALSE;
+    isSecondParamAvailable = FALSE;
+    isBinAction = FALSE;
     reg1Num = 0;
     reg2Num = 0;
     getCommand(cmd);
-    binaryAction = isBinaryAction(cmd);
+    isBinAction = isBinaryAction(cmd);
 }
 
 void codedAsFirstParamIsLabel() {
@@ -177,23 +169,24 @@ boolean codedAsBothParametersAreRegisters() {
     int i = 0, j, k;
     const unsigned int firstRegister = 20;
     Word machWord;
-    hasSecondParam = strlen(secondParam) == 0 ? FALSE : TRUE;
+    boolean isReg1Found = FALSE, isReg2Found = FALSE;
+    isSecondParamAvailable = strlen(secondParam) == 0 ? FALSE : TRUE;
 
     for (i = firstRegister; i < NUM_OF_KEYS; i++) {
-        if (havntFoundReg1 && strcmp(firstParam, keys[i].symbol) == EQUAL) {
-            paramOneIsReg = TRUE;
+        if (!isReg1Found && strcmp(firstParam, keys[i].symbol) == EQUAL) {
+            isParamOneReg = TRUE;
             reg1Num = keys[i].numValue;
-            havntFoundReg1 = FALSE;
+            isReg1Found = TRUE;
             j = i;
         }
-        if (havntFoundReg2 && hasSecondParam && strcmp(secondParam, keys[i].symbol) == EQUAL) {
-            paramTwoIsReg = TRUE;
+        if (!isReg2Found && isSecondParamAvailable && strcmp(secondParam, keys[i].symbol) == EQUAL) {
+            isParamTwoReg = TRUE;
             reg2Num = keys[i].numValue;
-            havntFoundReg2 = FALSE;
+            isReg2Found = TRUE;
             k = i;
         }
     }
-    if (paramOneIsReg && paramTwoIsReg) {
+    if (isParamOneReg && isParamTwoReg) {
         MAKE_NEW_WORD
         bothParamsAreRegistersSetting(&machWord, reg1Num, reg2Num);
         strcpy(temp, keys[j].symbol);
@@ -204,6 +197,10 @@ boolean codedAsBothParametersAreRegisters() {
     }
     return FALSE;
 
+}
+
+boolean errorInLine(paramsPtr ptr) {
+    return ptr == NULL ? TRUE : FALSE;
 }
 
 void copyParameters(paramsPtr ptr) {

@@ -54,7 +54,7 @@ void findLabelBeforeParameters(char *lineCpy, char *strWord) {
             return;
 
         /*If we got here this means the symbol is undefined.*/
-        printError(undef_symbol, temp);
+        printErrorWithComment(undef_symbol, temp);
     }
 
 }
@@ -86,7 +86,7 @@ boolean searchLabel(symPtr sPtr, Word machWord2, char *temp, char *strWord) {
 }
 
 void codeSecondParamMethod(Word *machWord, paramsPtr ptr, boolean unaryAction) {
-    if (unaryAction == FALSE) {/*Checking that the line has a second parameter*/
+    if (!unaryAction ) {/*Checking that the line has a second parameter*/
         if (isImmediate(ptr->secondParam) || atoi(ptr->secondParam))
             (*machWord)->param2 = IMMEDIATE_METHOD;
         else if (paramIsLabel(ptr->secondParam))

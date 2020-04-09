@@ -6,7 +6,6 @@ extern insPtr insListHead;
 extPtr extListHead;
 extern struct keyWords keys[];
 
-
 /*
  * Takes one line and codes it.
  */
@@ -18,28 +17,30 @@ void secondPass(FILE *fd) {
     /*Working with a ptr to the current line.*/
     line = (char *) malloc(sizeof(char) * LINE_SIZE);
     MEMORY_ERROR(line)
-    lineCnt = 0;
+    resetLineNumber();
 
-    /*Taking one line at a time and coding it*/
-    while (fgets(line, LINE_SIZE, fd) && ++lineCnt) {
+    while (getLineFromFile(line, fd)) {/*Taking one line at a time and coding it*/
+        parseLine(line);
+        incrementLinesNumber();
+
         if (lineIsComment(line))
             continue;
-        *strchr(line, '\n') = STR_END;
 
         if (lineWithCommandDefinition()) {
             codeCommand();
             codeParameters();
         } else if (lineWithEntryLabel())
             preWritingToFileEnt();
-
     }
+
     /*Finds if an extern symbol was not used during the run.*/
     externSymWasntUsed(fd);
 
-    if (errorsInSymTable() == FALSE && generalError == FALSE)
+    if (!errorsInSymTable() && !generalError)
         createFiles();
     free(line);
 }
+
 
 
 boolean specialTypeAction(char *cmd) {
@@ -65,7 +66,7 @@ boolean nothingToCode(paramsPtr ptr, char *cmd) {
  */
 void syncParametersToLine(paramsPtr *ptr) {
     while ((*ptr) != NULL) {
-        if ((*ptr)->lineNum == lineCnt)
+        if ((*ptr)->lineNum == lineNumber)
             return;
         (*ptr) = (*ptr)->next;
     }
@@ -77,27 +78,28 @@ void syncParametersToLine(paramsPtr *ptr) {
 void externSymWasntUsed(FILE *fd) {
     char tempLine[LINE_SIZE], *tempSym;
     extPtr ptr = extListHead;
-    boolean found = FALSE;
+    boolean isFound = FALSE;
     const size_t extLength = 7;
-    size_t lineCntCpy = 0;
+    size_t lineNum = 0;
 
     rewind(fd);
 
-    while (fgets(tempLine, LINE_SIZE, fd) && ++lineCntCpy) {
+    while (getLineFromFile(tempLine, fd)) {
+        ++lineNum;
         if (lineIsComment(tempLine))
             continue;
-        found = FALSE;
 
+        isFound = FALSE;
         if ((tempSym = strstr(tempLine, GUIDING_SENTENCE_EXTERN)) != NULL) {
             tempSym += extLength;
             removeSpaces(tempSym);
             removeSpaces(tempLine);
-            for (ptr = extListHead; ptr && !found; ptr = ptr->next) {
+            for (ptr = extListHead; ptr && !isFound; ptr = ptr->next) {
                 if (strcmp(ptr->symbol, tempSym) == EQUAL)
-                    found = TRUE;
+                    isFound = TRUE;
             }
-            if (ptr == NULL && found == FALSE)
-                printWarning(uns_ex_sym, tempSym, lineCntCpy);
+            if (ptr == NULL && !isFound)
+                printWarning(uns_ex_sym, tempSym, lineNum);
         }
     }
 
@@ -124,7 +126,7 @@ void checkForErrorsInRegAction() {
 
     for (ptr = symTableHead; ptr; ptr = ptr->next) {
         if (strstr(beforeParentheses, ptr->symName)) {
-            printError(illegal_sym_mth, ptr->symName);
+            printErrorWithComment(illegal_sym_mth, ptr->symName);
         }
     }
 }
@@ -134,13 +136,13 @@ void checkForErrorsInRegAction() {
  * Else, returns false.
  */
 boolean paramIsLabel(char *param) {
-    symPtr p = symTableHead;
+    symPtr ptr = symTableHead;
 
     /*Testing if the param is a symbol*/
-    while (p != NULL) {
-        if (strcmp(p->symName, param) == EQUAL)
+    while (ptr != NULL) {
+        if (strcmp(ptr->symName, param) == EQUAL)
             return TRUE;
-        p = p->next;
+        ptr = ptr->next;
     }
     return FALSE;
 }
@@ -186,4 +188,9 @@ boolean lineWithExternLabel() {
         return TRUE;
     return FALSE;
 }
+
+void resetLineNumber() {
+    lineNumber = 0;
+}
+
 

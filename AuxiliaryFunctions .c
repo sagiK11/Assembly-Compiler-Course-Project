@@ -48,25 +48,25 @@ void checkForErrors(char *cmd, Word machWord) {
             break;
     }
     /*Looking for miss use of the methods - this block tests srcOp..*/
-    if (keys[i].legitSrcMethodZro == FALSE &&
-        machWord->srcOp == IMMEDIATE_METHOD && keys[i].hasSrc == TRUE)
-        printError(src_meth0_illegal, cmd);
-    else if (keys[i].legitSrcMethodOne == FALSE && machWord->srcOp == DIRECT_METHOD)
-        printError(src_meth1_illegal, cmd);
-    else if (keys[i].legitSrcMethodTwo == FALSE && machWord->srcOp == JUMP_METHOD)
-        printError(src_meth2_illegal, "sagi");
-    else if (keys[i].legitSrcMethodThr == FALSE && machWord->srcOp == DIRECT_REGISTER)
-        printError(src_meth3_illegal, cmd);
+    if (!keys[i].legitSrcMethodZro &&
+        machWord->srcOp == IMMEDIATE_METHOD && keys[i].hasSrc)
+        printErrorWithComment(src_meth0_illegal, cmd);
+    else if (!keys[i].legitSrcMethodOne && machWord->srcOp == DIRECT_METHOD)
+        printErrorWithComment(src_meth1_illegal, cmd);
+    else if (!keys[i].legitSrcMethodTwo && machWord->srcOp == JUMP_METHOD)
+        printErrorWithComment(src_meth2_illegal, cmd);
+    else if (!keys[i].legitSrcMethodThr && machWord->srcOp == DIRECT_REGISTER)
+        printErrorWithComment(src_meth3_illegal, cmd);
 
     /*This block tests DestOp part of the command.*/
-    if (keys[i].legitDstMethodZro == FALSE && machWord->destOp == 0 && keys[i].hasDst == TRUE)
-        printError(dst_meth0_illegal, cmd);
-    else if (keys[i].legitDstMethodOne == FALSE && machWord->destOp == DIRECT_METHOD)
-        printError(dst_meth1_illegal, cmd);
-    else if (keys[i].legitDstMethodTwo == FALSE && machWord->destOp == JUMP_METHOD)
-        printError(dst_meth2_illegal, cmd);
-    else if (keys[i].legitDstMethodThr == FALSE && machWord->destOp == DIRECT_REGISTER)
-        printError(dst_meth3_illegal, cmd);
+    if (!keys[i].legitDstMethodZro && machWord->destOp == 0 && keys[i].hasDst)
+        printErrorWithComment(dst_meth0_illegal, cmd);
+    else if (!keys[i].legitDstMethodOne && machWord->destOp == DIRECT_METHOD)
+        printErrorWithComment(dst_meth1_illegal, cmd);
+    else if (!keys[i].legitDstMethodTwo && machWord->destOp == JUMP_METHOD)
+        printErrorWithComment(dst_meth2_illegal, cmd);
+    else if (!keys[i].legitDstMethodThr && machWord->destOp == DIRECT_REGISTER)
+        printErrorWithComment(dst_meth3_illegal, cmd);
 
 }
 
@@ -144,7 +144,7 @@ size_t findOperandType() {
             return DIRECT_METHOD;
 
     /*If we got here it means the parameter is neither of the above.*/
-    printError(undef_parameter, temp);
+    printErrorWithComment(undef_parameter, temp);
     return 0;
 }
 
@@ -160,7 +160,7 @@ boolean lineIsComment(char *line) {
     if (strchr(lineCopy, ISCOMMENT))
         return TRUE;
     for (i = 0; lineCopy[i]; i++) {
-        if (isspace(lineCopy[i]) == FALSE)
+        if (!isspace(lineCopy[i]))
             break;
     }
 
@@ -170,10 +170,7 @@ boolean lineIsComment(char *line) {
     return FALSE;
 }
 
-/*
- * Fills the lineList list with each string within the current line.
- */
-void fillLineList() {
+void createLineList() {
     int offset = 0;
     const int ok = 1;
     char str[LINE_SIZE];
@@ -265,6 +262,18 @@ boolean isImmediate(char *param) {
         return TRUE;
     return FALSE;
 
+}
+
+char *getLineFromFile(char *line, FILE *fd) {
+    return fgets(line, LINE_SIZE, fd);
+}
+
+void parseLine(char *line) {
+    *strchr(line, '\n') = STR_END;
+}
+
+void incrementLinesNumber() {
+    ++lineNumber;
 }
 
 

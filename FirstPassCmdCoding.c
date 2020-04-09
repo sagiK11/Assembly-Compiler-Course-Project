@@ -1,23 +1,21 @@
 #include "declarationsHeader.h"
 
-boolean sentenceWithLabel;
 size_t memoryWords;
+
+
 
 
 /*
  * Calculating the number of memory words the line will take.
  */
 void calCmdLine(int *IC) {
-    boolean symBeforeParams = FALSE;
     analyseParameters();
+    memoryWords += labelBeforeParam()  ? 1 : 0;
 
-    symBeforeParams = labelBeforeParam();
-    memoryWords += symBeforeParams == TRUE ? 1 : 0;
-
-    if (sentenceWithLabel)
+    if (lineWithLabelDefinition())
         updateLabelAddress(lineListHead->str, IC);
 
-    ++memoryWords;
+    incMemoryWordsByOne();
     (*IC) += memoryWords;
 }
 
@@ -26,8 +24,7 @@ void calCmdLine(int *IC) {
  * Counting the number of parameters in the line & inserting them into a list
  */
 void analyseParameters() {
-    char lineCpy[LINE_SIZE], cmd[CMD_LENGTH], lineCpy2[LINE_SIZE];
-    char tmp[LINE_SIZE];
+    char lineCpy[LINE_SIZE], cmd[CMD_LENGTH], tmp[LINE_SIZE];
     linePtr ptr = lineListHead;
 
     strcpy(lineCpy, line);
@@ -37,10 +34,7 @@ void analyseParameters() {
         return;
     ptr = movePtrToFirstParameter(ptr, cmd);
 
-    if (strchr(lineCpy, ISLABEL) != NULL) {/*Moving the lineCpy after the symbol.*/
-        strcpy(lineCpy2, line);
-        strcpy(lineCpy, (strchr(lineCpy2, ISLABEL)));
-    }
+    moveLineAfterSymbol(lineCpy);
 
     /*tmp pointing to the line since the first string after the command.*/
     strcpy(tmp, strstr(lineCpy, ptr->str));
@@ -55,21 +49,31 @@ void analyseParameters() {
 
 }
 
+void moveLineAfterSymbol(char* lineCpy) {
+    char lineCpy2[LINE_SIZE];
+    if (strchr(lineCpy, ISLABEL) != NULL) {/*Moving the lineCpy after the symbol.*/
+        strcpy(lineCpy2, line);
+        strcpy(lineCpy, (strchr(lineCpy2, ISLABEL)));
+    }
+
+}
+
 void codeOneParameter(char *lineCpy) {
     char firstParam[STRING_SIZE];
 
     strcpy(firstParam, lineCpy);
     addToParamsList(firstParam, NULL);
     checkForFloatErrors(firstParam, NULL);
-    memoryWords++;
-
+    incMemoryWordsByOne();
 }
+
+
 
 
 void codeTwoParameters(char *lineCpy) {
     char firstParam[STRING_SIZE], secondParam[STRING_SIZE];
     size_t i = 0, j = 0;
-    memoryWords += 2;
+    incMemoryWordsByTwo();
 
     if (strchr(lineCpy, O_BRACKETS) != NULL) {/* Line has brackets.*/
         strcpy(lineCpy, strchr(lineCpy, O_BRACKETS) + 1);
@@ -91,6 +95,14 @@ void codeTwoParameters(char *lineCpy) {
     memoryWords += bothParametersAreRegisters(firstParam, secondParam) ? -1
                                                                        : 0;/*Two reg's takes one word.*/
     checkForFloatErrors(firstParam, secondParam);
+}
+
+void incMemoryWordsByOne() {
+    memoryWords++;
+}
+
+void incMemoryWordsByTwo() {
+    memoryWords += 2;
 }
 
 linePtr movePtrToFirstParameter(linePtr ptr, char *cmd) {

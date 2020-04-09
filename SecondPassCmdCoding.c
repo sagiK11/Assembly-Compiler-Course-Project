@@ -51,11 +51,11 @@ void paramIsANumberSetting(Word *machWord, char *param, int notImmediate) {
     (*machWord)->isAdd = TRUE;
     (*machWord)->isCmd = FALSE;
     (*machWord)->isReg = FALSE;
-    temp = notImmediate == FALSE ? atoi(param + 1) : atoi(param);
+    temp = !notImmediate ? atoi(param + 1) : atoi(param);
     /*Testing its not a floating parameter.*/
     compare = (int) temp;
     if (temp > compare) {/*Checking if the number is a floating point data type.*/
-        printError(float_err, param);
+        printErrorWithComment(float_err, param);
         return;
     }
 
@@ -63,7 +63,7 @@ void paramIsANumberSetting(Word *machWord, char *param, int notImmediate) {
     if (temp != 0)
         (*machWord)->address = (unsigned) temp;
     else
-        printError(undef_parameter, param);
+        printErrorWithComment(undef_parameter, param);
 }
 
 /*

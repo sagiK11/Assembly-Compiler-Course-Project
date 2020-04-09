@@ -10,7 +10,7 @@ void addToParamsList(char *firstParm, char *secondParm) {
     paramsPtr newNode = (paramsPtr) malloc(sizeof(paramsList));
     MEMORY_ERROR(newNode)
 
-    newNode->lineNum = lineCnt;
+    newNode->lineNum = lineNumber;
     newNode->next = NULL;
 
     /*First parameter.*/
