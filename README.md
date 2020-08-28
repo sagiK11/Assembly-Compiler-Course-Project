@@ -1,4 +1,5 @@
 # Assembly-Compiler-Course-Project
+[![license](https://img.shields.io/github/license/DAVFoundation/captain-n3m0.svg?style=flat-square)](https://github.com/DAVFoundation/captain-n3m0/blob/master/LICENSE)
 
 Compiler for assembly language written in C language as a project for a uni course.
 
